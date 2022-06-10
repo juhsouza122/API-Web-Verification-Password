@@ -17,7 +17,6 @@ export class PasswordVerificationService {
     '+',
   ];
   verifyIfPasswordIsCorrect(password) {
-    console.log(this.verifyIfHasDuplicateCharactersInARow(password));
     return (
       this.verifyIfContainsAtLeastOneDigit(password) &&
       this.verifyIfContainsAtLeastOneUpperCaseLetter(password) &&
@@ -63,6 +62,7 @@ export class PasswordVerificationService {
   verifyIfHasDuplicateCharactersInARow(password: string) {
     let isValid = true;
     password.split('').forEach((letter, index, array) => {
+      console.log(array);
       if (letter.toUpperCase() === array[index + 1]) isValid = false;
     });
     return isValid;
