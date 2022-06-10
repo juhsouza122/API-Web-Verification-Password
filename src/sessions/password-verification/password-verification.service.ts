@@ -63,7 +63,7 @@ export class PasswordVerificationService {
   verifyIfHasDuplicateCharactersInARow(password: string) {
     let isValid = true;
     password.split('').forEach((letter, index, array) => {
-      if (letter === array[index + 1]) isValid = false;
+      if (letter.toUpperCase() === array[index + 1]) isValid = false;
     });
     return isValid;
   }
